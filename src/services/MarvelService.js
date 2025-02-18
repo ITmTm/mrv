@@ -13,6 +13,5 @@ class MarvelService {
 	
 	getAllCharacters = () => {
 		return this.getResource();
-		fff
 	}
 }
