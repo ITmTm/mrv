@@ -6,6 +6,11 @@ import mjolnir from '../../resources/img/mjolnir.png';
 import './randomChar.scss';
 
 class RandomChar extends Component {
+	constructor(props) {
+		super(props);
+		this.updateChar();
+	}
+	
     state = {
         name: null,
         description: null,
@@ -17,7 +22,7 @@ class RandomChar extends Component {
 	marvelService = new MarvelService();
 	
 	updateChar = () => {
-		const id = 1011005;
+		const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
 		this.marvelService
 			.getCharacter(id)
 			.then(res => {
