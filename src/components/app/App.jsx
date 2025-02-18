@@ -1,7 +1,7 @@
-import AppHeader from "../appHeader/AppHeader";
-import RandomChar from "../randomChar/RandomChar";
-import CharList from "../charList/CharList";
-import CharInfo from "../charInfo/CharInfo";
+import AppHeader from "../appHeader/AppHeader.jsx";
+import RandomChar from "../randomChar/RandomChar.jsx";
+import CharList from "../charList/CharList.jsx";
+import CharInfo from "../charInfo/CharInfo.jsx";
 
 import decoration from '../../resources/img/vision.png';
 
