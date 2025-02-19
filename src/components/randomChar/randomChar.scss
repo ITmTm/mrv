@@ -1,8 +1,9 @@
-@import '../../style/variables.scss';
+@use '../../style/variables.scss' as variables;
 
 .randomchar {
     display: grid;
     grid-template-columns: repeat(2, 50%);
+    align-items: center;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
     &__block {
         padding: 40px 35px;
@@ -38,7 +39,7 @@
     }
     &__static {
         padding: 40px 35px;
-        background-color: $dark;
+        background-color: variables.$dark;
         position: relative;
         button {
             margin-top: 13px;
