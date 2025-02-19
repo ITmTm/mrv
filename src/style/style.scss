@@ -1,7 +1,8 @@
+@forward 'variables';
+@forward 'button';
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
 
-@import 'variables';
-@import 'button';
 
 * {
     font-family: "Roboto Condensed", sans-serif;
