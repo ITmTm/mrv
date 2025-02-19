@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@use '../../style/variables' as variables;
 
 .app {
     &__header {
@@ -10,7 +10,7 @@
         font-size: 28px;
         line-height: 37px;
         span {
-            color: $main-color;
+            color: variables.$main-color;
         }
     }
     &__menu {
@@ -23,7 +23,7 @@
             li {
                 margin: 0 8px;
                 a:hover {
-                    color: $main-color;
+                    color: variables.$main-color;
                 }
             }
         }

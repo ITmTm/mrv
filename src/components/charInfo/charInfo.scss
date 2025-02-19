@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@use '../../style/variables.scss' as variables;
 
 .char {
     &__info {
