@@ -8,6 +8,9 @@
         column-gap: 25px;
         align-items: start;
     }
+    &__list {
+        text-align: center;
+    }
     &__grid {
         display: grid;
         grid-template-columns: repeat(3, 200px);
