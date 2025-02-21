@@ -13,7 +13,8 @@ class CharList extends Component {
 		loading: true,
 		error: false,
 		newItemLoading: false,
-		offset: 210
+		offset: 210,
+		charEnded: false
 	}
 	
 	marvelService = new MarvelService();
@@ -36,11 +37,17 @@ class CharList extends Component {
 	}
 	
 	onCharListLoaded = (newCharList) => {
+		let ended = false;
+		if (newCharList.length < 9) {
+			ended = true;
+		}
+		
 		this.setState(({ offset, charList }) => ({
 			charList: [...charList, ...newCharList],
 			loading: false,
 			newItemLoading: false,
-			offset: offset + 9
+			offset: offset + 9,
+			charEnded: ended
 		}))
 	}
 	
@@ -79,7 +86,7 @@ class CharList extends Component {
 	
 	render() {
 		
-		const { charList, loading, error, offset, newItemLoading } = this.state;
+		const { charList, loading, error, offset, newItemLoading, charEnded } = this.state;
 		
 		const items = this.renderItems(charList);
 		
@@ -95,6 +102,7 @@ class CharList extends Component {
 				<button
 					className="button button__main button__long"
 					disabled={newItemLoading}
+					style={{'display': charEnded ? 'none' : 'block'}}
 					onClick={() => this.onRequest(offset)}
 				>
 					<div className="inner">load more</div>
