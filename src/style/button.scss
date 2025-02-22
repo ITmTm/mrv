@@ -88,4 +88,7 @@
     &:hover {
         transform: translateY(-5px);
     }
+    &:disabled {
+        filter: drop-shadow(16px 16px 20px red) invert(75%);;
+    }
 }
