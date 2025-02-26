@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 
 import MarvelService from "../../services/MarvelService.js";
 
@@ -7,27 +7,28 @@ import ErrorMessage from "../errorMessage/ErrorMessage.jsx";
 
 import './charList.scss';
 
-class CharList extends Component {
-	state = {
-		charList: [],
-		loading: true,
-		error: false,
-		newItemLoading: false,
-		offset: 210,
-		charEnded: false
-	}
+const CharList = () => {
+	const [charList, setCharList] = useState([]);
+	const [newItemLoading, setNewItemLoading] = useState(false);
+	const [offset, setOffset] = useState(210);
+	const [charEnded, setCharEnded] = useState(false);
+
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
+
 	
-	marvelService = new MarvelService();
+	const marvelService = new MarvelService();
+
+	useEffect(() => {
+		onRequest()
+	}, []);
+
 	
-	componentDidMount() {
-		this.onRequest();
-	}
-	
-	onRequest = (offset) => {
-		this.onCharListLoading();
-		this.marvelService.getAllCharacters(offset)
-			.then(this.onCharListLoaded)
-			.catch(this.onError)
+	const onRequest = (offset) => {
+		onCharListLoading();
+		marvelService.getAllCharacters(offset)
+			.then(onCharListLoaded)
+			.catch(onError)
 	}
 	
 	onCharListLoading = () => {
@@ -108,15 +109,15 @@ class CharList extends Component {
 	}
 	
 	render() {
-		
+
 		const { charList, loading, error, offset, newItemLoading, charEnded } = this.state;
-		
+
 		const items = this.renderItems(charList);
-		
+
 		const errorMessage = error ? <ErrorMessage/> : null;
 		const spinner = loading ? <Spinner/> : null;
 		const content = !(loading || error) ? items : null;
-		
+
 		return (
 			<div className="char__list">
 				{errorMessage}
