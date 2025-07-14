@@ -1,0 +1,25 @@
+.error {
+  &__message {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 10px;
+
+    &-back {
+      display: block;
+      max-width: 300px;
+      margin: 30px auto 0 auto;
+      text-align: center;
+      font-weight: bold;
+      font-size: 35px;
+      color: red;
+      transition: .5s ease;
+
+      &:hover {
+        color: rgb(191, 174, 19);
+        transition: .5s ease;
+        text-decoration: underline;
+      }
+    }
+  }
+}
