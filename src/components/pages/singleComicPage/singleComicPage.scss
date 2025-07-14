@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../../style/variables';
 
 .single-comic {
     margin-top: 50px;
@@ -31,9 +31,12 @@
         justify-self: end;
         font-weight: bold;
         font-size: 18px;
+        color: red;
         line-height: 24px;
+        transition: .5s ease;
         &:hover {
-            color: $main-color;
+            color: rgb(191, 174, 19);
+            transition: .5s ease;
         }
     }
 }
