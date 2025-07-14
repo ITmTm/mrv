@@ -49,9 +49,20 @@ const useMarvelService = () => {
     return list.map(_transformComics);
   };
 
-  const getComics = async (id) => {
+  const getComic = async (id) => {
     const res = await request(`${_apiBase}comics/${id}?${_apiKey}`);
-    const list = _getResults(res);
+    let list;
+
+    try {
+      list =  _getResults(res)
+    } catch {
+      throw new Error('Comic not found');
+    }
+
+    if (!list.length) {
+      throw new Error('Comic not found');
+    }
+
     return _transformComics(list[0]);
   };
 
@@ -66,17 +77,17 @@ const useMarvelService = () => {
       thumbnail = '/img/default-character.png';
     }
 
-      return {
-        id: char.id,
-        name: char.name,
-        description: char.description
-            ? `${char.description.slice(0, 210)}...`
-            : 'There is no description for this character',
-        thumbnail,
-        homepage: char.urls[0].url,
-        wiki: char.urls[1].url,
-        comics: char.comics.items
-      };
+    return {
+      id: char.id,
+      name: char.name,
+      description: char.description
+          ? `${char.description.slice(0, 210)}...`
+          : 'There is no description for this character',
+      thumbnail,
+      homepage: char.urls[0].url,
+      wiki: char.urls[1].url,
+      comics: char.comics.items
+    };
   };
 
   const _transformComics = (comics) => {
@@ -103,7 +114,7 @@ const useMarvelService = () => {
     getAllCharacters,
     getCharacter,
     getAllComics,
-    getComics
+    getComic
   };
 }
 
