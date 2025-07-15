@@ -16,8 +16,13 @@ const CharList = (props) => {
 
   const {loading, error, getAllCharacters} = useMarvelService();
 
+  const didFetch = useRef(false);
+
   useEffect(() => {
-    onRequest(offset, true);
+    if (!didFetch.current) {
+      onRequest(offset, true);
+      didFetch.current = true;
+    }
   }, []);
 
 
@@ -60,7 +65,7 @@ const CharList = (props) => {
               className='char__item'
               tabIndex={0}
               ref={el => itemRefs.current[i] = el}
-              key={item.id}
+              key={`${item.id}-${i}`}
               onClick={() => {
                 props.onCharSelected(item.id)
                 focusOnItem(i);
