@@ -4,4 +4,5 @@
 
 <img width="1542" height="951" alt="Screenshot_1" src="https://github.com/user-attachments/assets/fdf7d579-c8aa-47ad-aa1d-21f26aeb1417" />
 
-## Функционал
+## Функционал:
+* Использование функциональных компонентов (Hook component)
