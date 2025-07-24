@@ -1,5 +1,7 @@
 # Project Marvel App React
 
+[![DEMO](https://img.shields.io/badge/live%20demo-0073cf?style=for-the-badge&logoColor=white)](https://project-marvel-react.vercel.app/)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
